@@ -1,0 +1,195 @@
+.pop{
+	font-family:"微软雅黑";
+}
+.pop .mask{
+	position:fixed;
+	top:0px;
+	bottom:0px;
+	left:0px;
+	width:100%;		
+	background-color:rgba(0,0,0,0.4);
+}
+/*弹出层*/
+.pop .model{
+	position: fixed;
+	left: 50%;
+	width: 70%;
+	top: 50%;
+	max-width: 300px;
+	margin: 0 auto;
+	z-index:9999;
+	background-color: #fff;
+	-webkit-transform: translateX(-50%) translateY(-50%);
+	-moz-transform: translateX(-50%) translateY(-50%);
+	-ms-transform: translateX(-50%) translateY(-50%);
+	transform: translateX(-50%) translateY(-50%);
+}
+.pop .model .title{
+	width:100%;
+	height:50px;
+	margin: 0px;
+	padding:0px;
+	font-size: 16px;
+	text-align:center;
+	line-height: 50px;
+	color:#383838;
+	text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    border-bottom: 1px solid hsl(0, 0%, 92%);
+}
+.pop .model .content{
+	margin: 0px auto;
+	padding: 20px 15px;
+    line-height: 22px;
+	text-align:center;
+}
+.pop .model .btngroup{
+	width: 100%;
+	height: 50px;
+	line-height:50px;
+	display:-moz-box;
+	display:-webkit-box;
+	display:box;	
+	border-top: 1px solid hsl(0, 0%, 92%);
+}
+.pop .model .btn{
+	-moz-box-flex:1;
+	-webkit-box-flex:1;
+	box-flex:1;
+	text-align:center;
+	border-right: 1px solid hsl(0, 0%, 92%);
+}
+.pop .model .btn:last-of-type{
+	border-right:none;
+}
+.pop .model .btn:active{
+	color: #fff;
+	background-color: #dedede;
+}
+/*toast*/
+.pop .toast{
+	position: fixed;
+	left: 50%;
+	-webkit-transform: translateX(-50%);
+	-moz-transform: translateX(-50%);
+	-ms-transform: translateX(-50%);
+	transform: translateX(-50%);
+	
+	bottom: 20px;
+	padding: 10px !important;
+	text-align: center;
+	color:#fff;
+	background-color: rgba(126,126,126,0.8);
+}
+
+/*actionsheet*/
+.pop .actionsheet {
+	pointer-events: inherit;
+    opacity: 1;
+  	display: -webkit-box;
+  	-webkit-box-orient: horizontal;
+  	-webkit-box-pack: center;
+  	-webkit-box-align: end;
+}
+.pop .actionsheet .content {
+	font-size: 21px;
+  	position: fixed;
+  	bottom: 0;
+  	padding: 0 8px;
+  	width: 100%;
+  	-webkit-box-sizing: border-box;
+  	box-sizing: border-box;
+  	text-align: center;
+  	webkit-transform: translateY(0);
+    -webkit-transition-delay: 0.3s;
+}
+.pop .actionsheet button, .pop .actionsheet h4{
+  	background: rgba(255, 255, 255, 0.84);
+  	display: block;
+  	width: 100%;
+  	color: #0079ff;
+  	-webkit-box-sizing: border-box;
+    box-sizing: border-box; 
+}
+.pop .actionsheet button{
+	font-size: 16px;
+  	line-height: 44px;
+  	height: 44px; 
+  	outline: none;
+}
+.pop .actionsheet h4 {
+  	line-height: 24px;
+  	padding-left: 20px;
+  	padding-right: 20px;
+  	padding-top: 10px;
+  	padding-bottom: 10px;
+  	border-top-left-radius: 3px;
+  	border-top-right-radius: 3px; 
+}
+.pop .actionsheet button:not(:last-child) {
+  	border-top: 1px #e0e0e0 solid; 
+}
+.pop .actionsheet button:last-child{
+  	margin: 8px 0;
+  	border-radius: 3px; 
+}
+.pop .actionsheet button:nth-last-child(2) {
+  	border-bottom-left-radius: 3px;
+  	border-bottom-right-radius: 3px; 
+}
+.pop .actionsheet button:active{
+  	opacity: 0.84; 
+}
+.pop .actionsheet h4{
+  	margin: 0;
+  	font-size: 13px;
+  	color: #8a8a8a; 
+}
+.pop .actionsheet button.delete{
+  	color: #fd472b !important; 
+}
+
+/*loading*/
+.pop .loading {
+  	margin: 5px auto;
+  	width: 100%;
+  	text-align: center;
+  	z-index: 9999;
+}
+.pop .loading > div {
+	width: 30px;
+	height: 30px;
+	background-color: #67CF22;
+	border-radius: 100%;
+	display: inline-block;
+	-webkit-animation: bouncedelay 1.4s infinite ease-in-out;
+	animation: bouncedelay 1.4s infinite ease-in-out;
+	-webkit-animation-fill-mode: both;
+	animation-fill-mode: both;
+}
+.pop .loading .bounce1 {
+  	-webkit-animation-delay: -0.32s;
+  	animation-delay: -0.32s;
+}
+
+.pop .loading .bounce2 {
+  	-webkit-animation-delay: -0.16s;
+  	animation-delay: -0.16s;
+}
+
+@-webkit-keyframes bouncedelay {
+  	0%, 80%, 100% { -webkit-transform: scale(0.0) }
+  	40% { -webkit-transform: scale(1.0) }
+}
+
+@keyframes bouncedelay {
+	0%, 80%, 100% {
+	    transform: scale(0.0);
+	    -webkit-transform: scale(0.0);
+	}
+	40% {
+	    transform: scale(1.0);
+	    -webkit-transform: scale(1.0);
+	}
+}

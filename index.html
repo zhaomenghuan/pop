@@ -1,0 +1,231 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>pop弹层组件</title>
+		<meta charset="UTF-8"/>
+		<meta name="viewport" content="initial-scale=1,maximum-scale=3,minimum-scale=1">
+		<link rel="stylesheet" type="text/css" href="./example/app.css"/>
+		<link rel="stylesheet" type="text/css" href="./dist/pop.css"/>
+	</head>
+	<body>		
+		<header class="ve-header">
+			<h1>pop——移动端弹出层的解决方案</h1>
+		</header>
+		<div class="ve-content">
+			<div class="ve-des">
+				<p>本弹层插件基于Native Javascript实现，不依赖任何第三方组件。提供了与常用弹层组件一致的语法，同时也提供了简写模式，封装了一些特殊实例，您可以按照需求对pop.open()方法进行个性化量身定制。</p>
+			</div>
+			<button class="ve-btn" id="btn1">加遮罩的提示框</button>
+			<h3 class="ve-h3">通用写法</h3>
+			<pre class="ve-code">
+pop.open({
+  content:"谢谢你的支持",
+  time:2000,
+  style:"color:#fff;background-color:#15b0de"
+});</pre>	
+			<h3 class="ve-h3">精简写法</h3>
+<pre class="ve-code">
+写法1：pop.toast("谢谢你的支持");
+写法2：pop.toast(["谢谢你的支持"，2000]);
+写法3：pop.toast("谢谢你的支持","color:#fff;background-color:#15b0de");
+</pre>	
+			<button class="ve-btn" id="btn2">仿原生APP提示框</button>	
+			<h3 class="ve-h3">通用写法</h3>
+			<pre class="ve-code">
+pop.open({
+  content:"谢谢你的支持",
+  time:2000,
+  mask:false,
+  position:"bottom"
+});</pre>	
+			<h3 class="ve-h3">精简写法</h3>
+<pre class="ve-code">
+pop.toast(["谢谢你的支持",3000,false,"bottom"]);
+</pre>				
+			<button class="ve-btn" id="btn3">信息框</button>
+			<h3 class="ve-h3">通用写法</h3>
+			<pre class="ve-code">
+pop.open({
+  title:["信息","color:#fff;background-color:#383838"],
+  content:"这是一个信息框",
+  btn:["确定"],
+  fun:function(){
+    pop.toast("当前版本号:"+pop.v);
+  }
+});</pre>	
+			<h3 class="ve-h3">精简写法</h3>
+			<pre class="ve-code">
+pop.alert(["信息框","这个是替换alert方法是提示框","确定"],function(){
+  pop.toast("是不是很惊喜");
+});
+</pre>			
+			<button class="ve-btn" id="btn4">询问框</button>
+			<h3 class="ve-h3">通用写法</h3>
+			<pre class="ve-code">
+pop.open({
+  title:"小青年博客",
+  content:"你觉得这个弹层组件怎么样？",
+  btn:["很好","一般"],
+  fun:[
+    function(){
+	 pop.toast("谢谢你的支持",1000);
+    },
+    function(){
+	  pop.alert(["提示框","很遗憾没有得到你的肯定","确定"],function(){
+		pop.toast("我会再接再厉！");
+	  });
+    }
+  ]
+})</pre>	
+			<button class="ve-btn" id="btn5">上拉菜单</button>
+			<h3 class="ve-h3">通用写法</h3>
+			<pre class="ve-code">
+pop.sheet({
+  title:"ctionsheet标题",
+  btn:["回复","转发","删除","取消"],
+  fun:[
+    function(){
+	 pop.toast("回复");
+    },
+    function(){
+	 pop.toast("转发");
+    },
+    function(){
+	 pop.toast("删除");
+    },
+    function(){
+	 pop.toast("取消");
+    }
+  ]
+});</pre>
+		<button class="ve-btn" id="btn6">加载动画</button>
+		<h3 class="ve-h3">通用写法</h3>
+		<pre class="ve-code">
+方法1：（默认动画）
+pop.loading();
+方法2：（自定义）
+pop.loading({
+  content:"加载中",
+  time:3000,
+  style:"background-color:#fff"
+})
+</pre>		
+		<template id="loading">
+	    	<p>加载中。。。</p>
+	    </template>
+		
+		
+		</div>
+		
+		<script src="./dist/pop.js" type="text/javascript" charset="utf-8"></script>
+		<script>
+			var $=function(id){
+				return document.getElementById(id);
+			}
+			//加遮罩的提示框（默认）
+			var btn1=$("btn1");
+			btn1.addEventListener('click',function(){
+				/*通用写法*/
+				pop.open({
+					content:"谢谢你的支持",
+					time:2000,
+					style:"color:#fff;background-color:#15b0de;"	
+				});
+				//精简写法
+				//pop.toast("谢谢你的支持","color:#fff;background-color:#15b0de");
+			});
+			
+			//不加遮罩的提示框
+			var btn2=$("btn2");
+			btn2.addEventListener('click',function(){
+				/*通用写法
+				pop.open({
+					content:"谢谢你的支持",
+					time:2000,
+					mask:false,
+					position:"bottom"
+				});*/
+				//精简写法
+				pop.toast(["谢谢你的支持",3000,false,"bottom"]);
+			});
+			
+			//信息框
+			var btn3=$("btn3");
+			btn3.addEventListener('click',function(){
+				/*通用写法
+				pop.open({
+					title:["信息","color:#fff;background-color:#383838"],
+					content:"这是一个信息框",
+					btn:["确定"],
+					fun:function(){
+						pop.toast("当前版本号:"+pop.v);
+					}
+				});	*/
+				/*精简写法*/
+				pop.alert(["信息框","这个是替换alert方法是提示框","确定"],function(){
+					pop.toast("是不是很惊喜");
+				});
+					
+			});
+			
+			var btn4=$("btn4");
+			btn4.addEventListener("click",function(){
+				pop.open({
+					title:"小青年博客",
+					content:"你觉得这个弹层组件怎么样？",
+					style:"",
+					btn:["很好","一般"],
+					fun:[
+						function(){
+							pop.toast(["谢谢你的支持",1000]);
+						},
+						function(){
+							pop.alert(["提示框","很遗憾没有得到你的肯定","确定"],function(){
+								pop.toast("我会再接再厉！");
+							});
+						}
+					]
+				})
+			});
+			
+			var btn5=$("btn5");
+			btn5.addEventListener('click',function(){
+				pop.sheet({
+					title:"ctionsheet标题",
+					btn:["回复","转发","删除","取消"],
+					fun:[
+						function(){
+						 	pop.toast("回复");
+					    },
+					    function(){
+						 	pop.toast("转发");
+					    },
+					    function(){
+						 	pop.toast("删除");
+					    },
+					    function(){
+						 	pop.toast("取消");
+					    }
+					]
+				});
+			});
+			
+			var btn6=$("btn6");
+			btn6.addEventListener('click',function(){
+				/*自定义
+				pop.loading({
+					content:"加载中",
+					time:3000,
+					style:"background-color:#fff"
+				})*/
+				/*配置时间
+				pop.loading({
+					time:2000
+				});
+				*/
+				//默认
+				pop.loading();
+			});
+		</script>
+	</body>
+</html>
