@@ -83,6 +83,10 @@ img {
     width:960px; 
     margin:0px auto;
   } 
+  .page-header a{
+    display: inline-block;
+    width:200px;
+  }
 }
 
 .page-header {
@@ -156,7 +160,7 @@ img {
 	padding: 10px 0px;
 }
 .ve-code{
-	padding: 0.8rem;
+    padding: 0.8rem;
     overflow: auto;
     font-size: 0.9rem;
     line-height: 1.45;
@@ -177,12 +181,12 @@ img {
 }
 
 .ve-copyright{
-	color: #383838;
-	text-align: center;
+    color: #383838;	
+    text-align: center;
 }
 .ve-copyright a{
-	color: #383838;
+    color: #383838;
 }
 .ve-copyright a:hover{
-	text-decoration: underline;
+    text-decoration: underline;
 }
