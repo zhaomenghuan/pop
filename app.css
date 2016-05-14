@@ -78,17 +78,7 @@ img {
 	zoom: 1; 
 }
 
-@media screen and (min-width: 960px) {
-  .ve-content {
-    width:960px; 
-    margin:0px auto;
-  } 
-  .page-header a{
-    display: inline-block;
-    width:200px;
-  }
-}
-
+/*app.css*/
 .page-header {
   color: #fff;
   text-align: center;
@@ -118,6 +108,16 @@ img {
 	padding: 10px;
 	color: #383838;
 	background-color: #fff;
+}
+@media screen and (min-width: 960px) {
+  .ve-content {
+    width:960px; 
+    margin:0px auto;
+  } 
+  .page-header a{
+    display: inline-block;
+    width:200px;
+  }
 }
 
 .ve-header{
