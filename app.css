@@ -80,26 +80,26 @@ img {
 
 /*app.css*/
 .page-header {
-  color: #fff;
-  text-align: center;
-  background-color: #15b0de;
+  	color: #fff;
+  	text-align: center;
+  	background-color: #15b0de;
 }
 
 @media screen and (min-width: 64em) {
   .page-header {
-    padding: 5rem 6rem; 
+    	padding: 5rem 6rem; 
   } 
 }
 
 @media screen and (min-width: 42em) and (max-width: 64em) {
   .page-header {
-    padding: 3rem 4rem; 
+    	padding: 3rem 4rem; 
   } 
 }
 
 @media screen and (max-width: 42em) {
   .page-header {
-    padding: 2rem 1rem; 
+    	padding: 2rem 1rem; 
   } 
 }
 .page-header a{
@@ -110,13 +110,16 @@ img {
 	background-color: #fff;
 }
 @media screen and (min-width: 960px) {
+  .project-name{
+  	font-size:30px;
+  }
   .ve-content {
-    width:960px; 
-    margin:0px auto;
+    	width:960px; 
+    	margin:0px auto;
   } 
   .page-header a{
-    display: inline-block;
-    width:200px;
+    	display: inline-block;
+    	width:200px;
   }
 }
 
@@ -160,33 +163,33 @@ img {
 	padding: 10px 0px;
 }
 .ve-code{
-    padding: 0.8rem;
-    overflow: auto;
-    font-size: 0.9rem;
-    line-height: 1.45;
-    border-radius: 0.3rem;
-    margin-top: 0px;
-    margin-bottom: 1rem;
-    font: 1rem Consolas, 'Liberation Mono', Menlo, Courier, monospace;
-    color: rgb(86, 116, 130);
-    word-wrap: normal;
-    background-color: rgb(243, 246, 250);
-    border: 1px solid rgb(220, 230, 240);
-    border-image-source: initial;
-    border-image-slice: initial;
-    border-image-width: initial;
-    border-image-outset: initial;
-    border-image-repeat: initial;
-    border-radius: 0.3rem;
+    	padding: 0.8rem;
+    	overflow: auto;
+    	font-size: 0.9rem;
+    	line-height: 1.45;
+    	border-radius: 0.3rem;
+    	margin-top: 0px;
+    	margin-bottom: 1rem;
+    	font: 1rem Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+    	color: rgb(86, 116, 130);
+    	word-wrap: normal;
+    	background-color: rgb(243, 246, 250);
+    	border: 1px solid rgb(220, 230, 240);
+    	border-image-source: initial;
+    	border-image-slice: initial;
+    	border-image-width: initial;
+    	border-image-outset: initial;
+    	border-image-repeat: initial;
+    	border-radius: 0.3rem;
 }
 
 .ve-copyright{
-    color: #383838;	
-    text-align: center;
+    	color: #383838;	
+    	text-align: center;
 }
 .ve-copyright a{
-    color: #383838;
+    	color: #383838;
 }
 .ve-copyright a:hover{
-    text-decoration: underline;
+    	text-decoration: underline;
 }
