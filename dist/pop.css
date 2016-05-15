@@ -15,7 +15,6 @@
 	width:100%;		
 	background-color:rgba(0,0,0,0.4);
 }
-/*弹出层*/
 .pop .model{
 	position: fixed;
 	left: 50%;
@@ -73,6 +72,7 @@
 	color: #fff;
 	background-color: #dedede;
 }
+
 /*toast*/
 .pop .toast{
 	position: fixed;
@@ -178,17 +178,14 @@
   	-webkit-animation-delay: -0.32s;
   	animation-delay: -0.32s;
 }
-
 .pop .loading .bounce2 {
   	-webkit-animation-delay: -0.16s;
   	animation-delay: -0.16s;
 }
-
 @-webkit-keyframes bouncedelay {
   	0%, 80%, 100% { -webkit-transform: scale(0.0) }
   	40% { -webkit-transform: scale(1.0) }
 }
-
 @keyframes bouncedelay {
 	0%, 80%, 100% {
 	    transform: scale(0.0);

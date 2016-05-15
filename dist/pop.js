@@ -7,6 +7,7 @@
 ;!function(w){
 	var config={
 		v:'0.0.2',
+		site:"<a href='http://zhaomenghuan.github.io/pop/'>http://zhaomenghuan.github.io/pop/</a>",
 		mask:true, //默认开启遮罩层
 		time:2000,  //默认定时2s自动关闭
 		position:"center"
@@ -36,7 +37,7 @@
 	
 	w.pop={	
 		v:config.v,
-		site:"<a href='http://zhaomenghuan.github.io/pop/'>http://zhaomenghuan.github.io/pop/</a>",
+		site:config.site,
 		view:function(opt){
 			var pop=creatEle("div"),mask=creatEle("div"),model=creatEle("div");
 			pop.className="pop";
@@ -174,10 +175,10 @@
 		},
 		loading:function(opt){
 			var html='<div class="loading">'+
-						  '<div class="bounce1"></div>'+
-						  '<div class="bounce2"></div>'+
-						  '<div class="bounce3"></div>'+
-					 '</div>',
+					'<div class="bounce1"></div>'+
+					'<div class="bounce2"></div>'+
+					'<div class="bounce3"></div>'+
+				'</div>',
 				bgcolor="background-color:transparent";
 				
 			if(opt){
