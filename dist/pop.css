@@ -1,6 +1,6 @@
 /*!
  * =====================================================
- * pop v0.0.1 (http://zhaomenghuan.github.io/pop/)
+ * pop v0.0.2 (http://zhaomenghuan.github.io/pop/)
  * =====================================================
  */
 
@@ -40,14 +40,14 @@
 	line-height: 50px;
 	color:#383838;
 	text-overflow: ellipsis;
-    overflow: hidden;
-    white-space: nowrap;
-    border-bottom: 1px solid hsl(0, 0%, 92%);
+	overflow: hidden;
+	white-space: nowrap;
+	border-bottom: 1px solid hsl(0, 0%, 92%);
 }
 .pop .model .content{
 	margin: 0px auto;
 	padding: 20px 15px;
-    line-height: 22px;
+	line-height: 22px;
 	text-align:center;
 }
 .pop .model .btngroup{
@@ -92,7 +92,7 @@
 /*actionsheet*/
 .pop .actionsheet {
 	pointer-events: inherit;
-    opacity: 1;
+	opacity: 1;
   	display: -webkit-box;
   	-webkit-box-orient: horizontal;
   	-webkit-box-pack: center;
@@ -108,7 +108,7 @@
   	box-sizing: border-box;
   	text-align: center;
   	webkit-transform: translateY(0);
-    -webkit-transition-delay: 0.3s;
+  	-webkit-transition-delay: 0.3s;
 }
 .pop .actionsheet button, .pop .actionsheet h4{
   	background: rgba(255, 255, 255, 0.84);
@@ -116,7 +116,7 @@
   	width: 100%;
   	color: #0079ff;
   	-webkit-box-sizing: border-box;
-    box-sizing: border-box; 
+  	box-sizing: border-box; 
 }
 .pop .actionsheet button{
 	font-size: 18px;
