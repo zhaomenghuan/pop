@@ -1,16 +1,25 @@
 /*!
  * =====================================================
- * pop v0.0.1 (http://zhaomenghuan.github.io/pop/)
+ * pop v0.0.2 (http://zhaomenghuan.github.io/pop/)
  * =====================================================
  */
 
 ;!function(w){
+	var config={
+		v:'0.0.2',
+		site:"<a href='http://zhaomenghuan.github.io/pop/'>http://zhaomenghuan.github.io/pop/</a>",
+		mask:true, //默认开启遮罩层
+		time:2000,  //默认定时2s自动关闭
+		position:"center"
+	};
+	var clearTimer=null;
+	
 	//选择器
 	var $ = function(el){
 		return document.querySelector(el);
 	}
 	//生成节点
-	var C = function(el){
+	var creatEle = function(el){
 		return document.createElement(el);
 	}
 	//判断是否字符串
@@ -26,17 +35,11 @@
 		return obj?obj:def;
 	}
 	
-	var config={
-		mask:true, //默认开启遮罩层
-		time:2000,  //默认定时2s自动关闭
-		position:"center"
-	},clearTimer=null;
-		
 	w.pop={	
-		v:'0.0.1',
-		site:"<a href='http://zhaomenghuan.github.io/pop/'>http://zhaomenghuan.github.io/pop/</a>",
+		v:config.v,
+		site:config.site,
 		view:function(opt){
-			var pop=C("div"),mask=C("div"),model=C("div");
+			var pop=creatEle("div"),mask=creatEle("div"),model=creatEle("div");
 			pop.className="pop";
 			//遮罩
 			if((opt.mask===undefined && config.mask) || opt.mask){
@@ -58,7 +61,7 @@
 			}
 			//标题
 			if(opt.title){
-				var title=C("h3");
+				var title=creatEle("h3");
 				title.className="title";
 				if(isArray(opt.title)){
 					title.innerHTML=opt.title[0];
@@ -70,19 +73,19 @@
 			}
 			//内容
 			if(opt.content){
-				var content=C("div");
+				var content=creatEle("div");
 				content.className="content";
 				content.innerHTML=isEmpty(opt.content,w.pop.site);
 				model.appendChild(content);
 			}
 			//按钮
 			if(opt.btn){
-				btngroup=C("div");
+				btngroup=creatEle("div");
 				btngroup.className="btngroup";
 				model.appendChild(btngroup);
 				var btnNum=opt.btn.length,btn={};
 				for(var i=0;i<btnNum;i++){
-					btn['btn'+i]=C("div");
+					btn['btn'+i]=creatEle("div");
 					btn['btn'+i].className="btn";
 					btn['btn'+i].innerHTML=opt.btn[i];
 					btn['btn'+i].index=i;
@@ -101,19 +104,19 @@
 				
 			//上拉菜单
 			if(opt.sheet){
-				var sheet=C("div"),btngroup=C("div");
+				var sheet=creatEle("div"),btngroup=creatEle("div");
 				sheet.className="actionsheet";
 				btngroup.className="content";
 				//标题
 				if(opt.sheettitle){
-					var title=C("h4");
+					var title=creatEle("h4");
 					title.innerHTML=opt.sheettitle;
 					btngroup.appendChild(title);
 				}
 				//按钮		
 				var length=opt.item.length,item={};
 				for(var i=0;i<length;i++){
-					item["btn"+i]=C("button");
+					item["btn"+i]=creatEle("button");
 					item["btn"+i].innerHTML=opt.item[i];
 					item["btn"+i].index=i;
 					item["btn"+i].addEventListener('click',function(){
@@ -172,10 +175,10 @@
 		},
 		loading:function(opt){
 			var html='<div class="loading">'+
-						  '<div class="bounce1"></div>'+
-						  '<div class="bounce2"></div>'+
-						  '<div class="bounce3"></div>'+
-					 '</div>',
+					'<div class="bounce1"></div>'+
+					'<div class="bounce2"></div>'+
+					'<div class="bounce3"></div>'+
+				'</div>',
 				bgcolor="background-color:transparent";
 				
 			if(opt){
