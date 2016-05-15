@@ -1,3 +1,9 @@
+/*!
+ * =====================================================
+ * pop v0.0.1 (http://zhaomenghuan.github.io/pop/)
+ * =====================================================
+ */
+
 .pop{
 	font-family:"微软雅黑";
 }
@@ -113,7 +119,7 @@
     box-sizing: border-box; 
 }
 .pop .actionsheet button{
-	font-size: 16px;
+	font-size: 18px;
   	line-height: 44px;
   	height: 44px; 
   	outline: none;
