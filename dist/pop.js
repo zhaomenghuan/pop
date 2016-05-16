@@ -1,18 +1,17 @@
 /*!
  * =====================================================
- * pop v0.0.2 (http://zhaomenghuan.github.io/pop/)
+ * pop v0.0.3 (http://zhaomenghuan.github.io/pop/)
  * =====================================================
  */
 
 ;!function(w){
 	var config={
-		v:'0.0.2',
-		site:"<a href='http://zhaomenghuan.github.io/pop/'>http://zhaomenghuan.github.io/pop/</a>",
+		v:'0.0.3',
+		site:'http://zhaomenghuan.github.io/pop/',
 		mask:true, //默认开启遮罩层
 		time:2000,  //默认定时2s自动关闭
 		position:"center"
 	};
-	var clearTimer=null;
 	
 	//选择器
 	var $ = function(el){
@@ -35,13 +34,14 @@
 		return obj?obj:def;
 	}
 	
+	var clearTimer=null;
 	w.pop={	
 		v:config.v,
 		site:config.site,
 		view:function(opt){
-			var pop=creatEle("div"),mask=creatEle("div"),model=creatEle("div");
+			var pop=creatEle("div"),mask=creatEle("div"),model=creatEle("div"),content=creatEle("div");;
 			pop.className="pop";
-			//遮罩
+			/*遮罩*/
 			if((opt.mask===undefined && config.mask) || opt.mask){
 				mask.className="mask";
 				mask.addEventListener('click',function(){
@@ -72,10 +72,9 @@
 				model.appendChild(title);
 			}
 			//内容
-			if(opt.content){
-				var content=creatEle("div");
+			if(opt.content || opt.select){
 				content.className="content";
-				content.innerHTML=isEmpty(opt.content,w.pop.site);
+				content.innerHTML=isEmpty(opt.content,null);
 				model.appendChild(content);
 			}
 			//按钮
@@ -96,13 +95,12 @@
 						}else{
 							opt.fun[this.index]();
 						}
-						
 					})
 					btngroup.appendChild(btn['btn'+i]);
 				}	
 			}
 				
-			//上拉菜单
+			/*上拉菜单*/
 			if(opt.sheet){
 				var sheet=creatEle("div"),btngroup=creatEle("div");
 				sheet.className="actionsheet";
@@ -121,12 +119,40 @@
 					item["btn"+i].index=i;
 					item["btn"+i].addEventListener('click',function(){
 						w.pop.close();
-						opt.fun[this.index]();
+						if(btnNum==1){
+							opt.fun();
+						}else{
+							opt.fun[this.index]();
+						}
 					})
 					btngroup.appendChild(item["btn"+i]);
 				}
 				sheet.appendChild(btngroup);
 				pop.appendChild(sheet);
+			}
+			
+			/*选择框*/
+			if(opt.select){
+				content.className="select";
+				var list=creatEle("ul");
+				//按钮		
+				var length=opt.item.length,item={};
+				for(var i=0;i<length;i++){
+					item["btn"+i]=creatEle("li");
+					item["btn"+i].className="option";
+					item["btn"+i].innerHTML=opt.item[i];
+					item["btn"+i].index=i;
+					item["btn"+i].addEventListener('click',function(){
+						w.pop.close();
+						if(btnNum==1){
+							opt.fun();
+						}else{
+							opt.fun[this.index]();
+						}
+					})
+					list.appendChild(item["btn"+i]);
+				}
+				content.appendChild(list);
 			}
 			
 			return pop;
@@ -141,37 +167,42 @@
 			}
 		},
 		close:function(){
-			if(clearTimer){clearTimeout(clearTimer);}
+			if(clearTimer) clearTimeout(clearTimer);
 			var pop=$(".pop");
 			document.body.removeChild(pop);
 		},
 		toast:function(opt,style){
-			var options={
+			w.pop.open({
 				content:(isArray(opt)?opt[0]:opt),
 				time:(isArray(opt)?opt[1]:config.time),
 				mask:(isArray(opt)?opt[2]:true),
 				position:(isArray(opt)?opt[3]:"center"),
 				style:style
-			}
-			w.pop.open(options);
+			});
 		},
 		alert:function(opt,handle){
-			var options={
+			w.pop.open({
 				title:isEmpty(opt[0],'提示框'),
 				content:isEmpty(opt[1],w.pop.site),
 				btn:[isEmpty(opt[2],'OK')],
 				fun:handle
-			}
-			w.pop.open(options);
+			});
 		},
 		sheet:function(opt){
-			var options={
+			w.pop.open({
 				sheet:true,
 				sheettitle:opt.title,
 				item:opt.btn,
 				fun:opt.fun
-			}
-			w.pop.open(options);
+			});
+		},
+		select:function(opt){
+			w.pop.open({
+				select:true,
+				title:opt.title,
+				item:opt.btn,
+				fun:opt.fun
+			});
 		},
 		loading:function(opt){
 			var html='<div class="loading">'+

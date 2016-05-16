@@ -1,6 +1,6 @@
 /*!
  * =====================================================
- * pop v0.0.2 (http://zhaomenghuan.github.io/pop/)
+ * pop v0.0.3 (http://zhaomenghuan.github.io/pop/)
  * =====================================================
  */
 
@@ -48,6 +48,15 @@
 	padding: 20px 15px;
 	line-height: 22px;
 	text-align:center;
+}
+.pop .model .select{
+	list-style: none;
+	margin: 0px;
+	text-align: center;
+}
+.pop .model .select .option{
+	line-height: 40px;
+	border-top: 1px solid hsl(0, 0%, 92%);
 }
 .pop .model .btngroup{
 	width: 100%;

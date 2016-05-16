@@ -83,7 +83,7 @@ pop.open({
   ]
 })</pre>	
 			<button class="ve-btn" id="btn5">上拉菜单</button>
-			<h3 class="ve-h3">通用写法</h3>
+			<h3 class="ve-h3">精简写法</h3>
 			<pre class="ve-code">
 pop.sheet({
   title:"ctionsheet标题",
@@ -104,7 +104,7 @@ pop.sheet({
   ]
 });</pre>
 		<button class="ve-btn" id="btn6">加载动画</button>
-		<h3 class="ve-h3">通用写法</h3>
+		<h3 class="ve-h3">精简写法</h3>
 		<pre class="ve-code">
 方法1：（默认动画）
 pop.loading();
@@ -115,13 +115,37 @@ pop.loading({
   style:"background-color:#fff"
 })
 </pre>		
+		
+		<button class="ve-btn" id="btn7">选择列表</button>
+		<h3 class="ve-h3">精简写法</h3>
+		<pre class="ve-code">
+pop.select({
+  title:["选择框","color:#fff;background-color:#15b0de"],
+  btn:["回复","转发","删除","取消"],
+  fun:[
+    function(){
+    	pop.toast(["回复",2000,false,"bottom"]);
+    },
+    function(){
+        pop.toast(["转发",2000,false,"bottom"]);
+    },
+    function(){
+        pop.toast(["删除",2000,false,"bottom"]);
+    },
+    function(){
+        pop.toast(["取消",2000,false,"bottom"]);
+    }
+  ]
+});	
+</pre>
+
 		<div class="ve-copyright">
 			<a href="http://zhaomenghuan.github.io/">小青年</a>出品
 		</div>
 		
 		</div>
 		
-		<script src="./dist/pop.js" type="text/javascript" charset="utf-8"></script>
+		<script src="./dist/pop.min.js" type="text/javascript" charset="utf-8"></script>
 		<script>
 			var $=function(id){
 				return document.getElementById(id);
@@ -198,7 +222,7 @@ pop.loading({
 					title:"ctionsheet标题",
 					btn:["回复","转发","删除","取消"],
 					fun:[
-						function(){
+					    function(){
 						 	pop.toast("回复");
 					    },
 					    function(){
@@ -229,6 +253,28 @@ pop.loading({
 				*/
 				//默认
 				pop.loading();
+			});
+			
+			var btn7=$("btn7");
+			btn7.addEventListener('click',function(){
+				pop.select({
+					title:["选择框","color:#fff;background-color:#15b0de"],
+					btn:["回复","转发","删除","取消"],
+					fun:[
+					    function(){
+						 	pop.toast(["回复",2000,false,"bottom"]);
+					    },
+					    function(){
+						 	pop.toast(["转发",2000,false,"bottom"]);
+					    },
+					    function(){
+						 	pop.toast(["删除",2000,false,"bottom"]);
+					    },
+					    function(){
+						 	pop.toast(["取消",2000,false,"bottom"]);
+					    }
+					]
+				});
 			});
 		</script>
 	</body>
